@@ -18,7 +18,6 @@ app.get("/health", (_req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
-  console.log(`Webhook endpoint: POST http://localhost:${PORT}/webhook/bolna`);
 });
 
 module.exports = app;

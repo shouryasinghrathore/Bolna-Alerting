@@ -28,8 +28,6 @@ function buildSlackPayload(callData) {
   const callType = telephony_data.call_type ?? "N/A";
   const toNumber = telephony_data.to_number ?? "N/A";
   const fromNumber = telephony_data.from_number ?? "N/A";
-  const hangupBy = telephony_data.hangup_by ?? "N/A";
-  const hangupReason = telephony_data.hangup_reason ?? "N/A";
 
   const callTime = created_at
     ? new Date(created_at).toLocaleString("en-US", { timeZone: "UTC" }) + " UTC"
@@ -69,7 +67,7 @@ function buildSlackPayload(callData) {
         fields: [
           {
             type: "mrkdwn",
-            text: `*Call ID*\n\`${id ?? "N/A"}\``,
+            text: `*ID*\n\`${id ?? "N/A"}\``,
           },
           {
             type: "mrkdwn",
@@ -95,14 +93,6 @@ function buildSlackPayload(callData) {
           {
             type: "mrkdwn",
             text: `*To*\n${toNumber}`,
-          },
-          {
-            type: "mrkdwn",
-            text: `*Hangup By*\n${hangupBy}`,
-          },
-          {
-            type: "mrkdwn",
-            text: `*Hangup Reason*\n${hangupReason}`,
           },
         ],
       },
